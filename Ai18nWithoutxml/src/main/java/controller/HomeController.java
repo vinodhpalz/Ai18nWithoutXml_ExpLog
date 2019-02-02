@@ -11,7 +11,7 @@ public class HomeController {
 	
 	private Logger logger = Logger.getLogger(HomeController.class);
 	
-	@RequestMapping(value= "/init", method= RequestMethod.GET)
+	@RequestMapping(value= "/", method= RequestMethod.GET)
 	public ModelAndView initView() {
 		ModelAndView mv = null;
 		try

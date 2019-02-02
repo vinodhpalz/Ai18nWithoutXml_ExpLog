@@ -9,7 +9,7 @@
 <body>
 	<h2>${welcomeMsg}</h2>
 	<hr/>
-	<a id="en" href="${pageContext.request.contextPath}/init?lang=en">English</a> | <a id="fr" href="${pageContext.request.contextPath}/init?lang=fr">French</a> | <a id="zh" href="${pageContext.request.contextPath}/init?lang=zh">Chinese</a>
+	<a id="en" href="${pageContext.request.contextPath}/?lang=en">English</a> | <a id="fr" href="${pageContext.request.contextPath}/?lang=fr">French</a> | <a id="zh" href="${pageContext.request.contextPath}/?lang=zh">Chinese</a> | <a href="${pageContext.request.contextPath}/logout">Logout</a>
 	<div> </div>
 	<div id="welcome_text">
 		<h4><spring:message code="welcome.message"/></h4>
