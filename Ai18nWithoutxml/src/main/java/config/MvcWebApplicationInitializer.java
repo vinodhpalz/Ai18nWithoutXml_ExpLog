@@ -7,9 +7,8 @@ public class MvcWebApplicationInitializer extends AbstractAnnotationConfigDispat
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		// TODO Auto-generated method stub
-		return new Class[] {SecurityConfig.class };
+		return new Class[] {AppConfig.class, SecurityConfig.class };
 	}
-
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		// TODO Auto-generated method stub
