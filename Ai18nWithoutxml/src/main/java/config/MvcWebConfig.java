@@ -50,7 +50,7 @@ public class MvcWebConfig implements WebMvcConfigurer{
 		}
 		public static void main(String[] args)
 		{
-			String pass = new BCryptPasswordEncoder().encode("pass@123");
+			String pass = new BCryptPasswordEncoder().encode("admin@123");
 			System.out.println(pass);
 		}
 }
