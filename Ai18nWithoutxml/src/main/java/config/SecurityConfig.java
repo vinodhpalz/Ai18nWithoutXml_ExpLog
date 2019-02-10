@@ -48,8 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		antMatchers("/login").
 		permitAll().
 		antMatchers("/").
-		hasAnyRole("ADMIN","SUPPLIER").
-		antMatchers("/addProductsPage").access("hasRole('ROLE_ADMIN')").
+				 hasAnyRole("ADMIN","SUPPLIER"). 
+				 antMatchers("/addProductsPage").access("hasRole('ROLE_ADMIN')"). 
 		and().
 			formLogin().loginPage("/login").
 			defaultSuccessUrl("/").
@@ -60,10 +60,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			logoutSuccessUrl("/login?logout=true").
 			invalidateHttpSession(true).
 			permitAll().
+			and().
+			exceptionHandling().accessDeniedPage("/403"). 
 		and().
 			csrf().
 			disable();
 		
+		/*
+		 * http.sessionManagement().maximumSessions(1).expiredUrl("/login?expired");
+		 * http.sessionManagement().wait(10*60);
+		 */
+		 
 	}
 	
 }

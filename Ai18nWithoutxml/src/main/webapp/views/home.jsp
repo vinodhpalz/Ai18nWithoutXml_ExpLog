@@ -20,8 +20,8 @@
 		<spring:message code="txt.country"/><input type="text" name="country"/><br/>
 	</div>
 	</security:authorize>
-	<security:authorize access="hasRole('ROLE_ADMIN')"> 
+	
 	<div><a href="${pageContext.request.contextPath}/addProductsPage">Add Products</a></div>
-	</security:authorize>
+
 </body>
 </html>

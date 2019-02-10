@@ -1,5 +1,7 @@
 package controller;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class LoginController {
@@ -40,7 +43,21 @@ public class LoginController {
 	}
 	
 	
-	
+	@RequestMapping(value="/403", method=RequestMethod.GET)
+	public ModelAndView accessDenied(Principal user) {
+		
+		ModelAndView mv = new ModelAndView();
+		
+		if(user != null) {
+			mv.addObject("msg",user.getName()+" "+"You do not have permission to access the page!");
+		}
+		else
+		{
+			mv.addObject("msg","You do not have permission to access the page!");
+		}
+		mv.setViewName("403");
+		return mv;
+	}
 	
 	
 	
