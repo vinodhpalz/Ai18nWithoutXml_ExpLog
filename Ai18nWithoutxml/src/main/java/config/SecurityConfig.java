@@ -9,8 +9,10 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.session.HttpSessionEventPublisher;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
@@ -65,12 +67,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		and().
 			csrf().
 			disable();
+		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
 		
-		/*
-		 * http.sessionManagement().maximumSessions(1).expiredUrl("/login?expired");
-		 * http.sessionManagement().wait(10*60);
-		 */
 		 
+	}
+	
+	@Bean
+	public HttpSessionEventPublisher httpSessionEventPublisher()
+	{
+		return new HttpSessionEventPublisher();
 	}
 	
 }
